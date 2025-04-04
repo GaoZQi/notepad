@@ -42,6 +42,17 @@ extra_javascript:
 
 plugins:
     - heti
+
+    - blog:
+          authors_file: "{blog}/.authors.yml"
+          blog_toc: true # 设置blog索引页面的目录
+          post_date_format: full # 设置blog索引页面的日期格式
+          archive_toc: true
+          categories_toc: true
+          pagination_format: "$link_first $link_previous ~2~ $link_next $link_last" # 设置blog索引页面的分页格式
+          pagination_keep_content: true # 设置blog索引页面的分页内容
+          draft_if_future_date: true # 设置如果blog的日期是未来的话，就会被当成草稿不会被发布
+
     - glightbox:
           touchNavigation: true
           loop: false
@@ -83,12 +94,12 @@ plugins:
     #           # md-nav: [nav, class]
     #           # md-sidebar__inner: [div, class]
 
-    # - git-revision-date-localized:
-    #       type: timeago
-    #       custom_format: "%d. %B %Y"
-    #       timezone: Asia/Shanghai
-    #       locale: zh
-    #       fallback_to_build_date: false
+    - git-revision-date-localized:
+          type: timeago
+          custom_format: "%d. %B %Y"
+          timezone: Asia/Shanghai
+          locale: zh
+          enable_creation_date: true
 
     # - git-committers:
     #       repository: GaoZQi/notepad # 仓库名称
@@ -104,7 +115,7 @@ markdown_extensions:
     - attr_list # 属性列表
     - md_in_html
     - toc: # 目录
-          # permalink: "§" # 目录链接
+          permalink: "§" # 目录链接
           toc_depth: 4 # 目录深度
     - meta # 元数据
     - def_list # 定义列表
@@ -147,3 +158,4 @@ markdown_extensions:
 
 nav:
     - 首页: index.md
+    - 文件夹: blog/index.md
